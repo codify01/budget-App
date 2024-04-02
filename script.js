@@ -1,6 +1,7 @@
 // let totalIncome = document.getElementById("totalIncome").innerHTML
 // let totalSpending = document.getElementById("totalspending").innerHTML
-
+let expense = []
+totalIncome.innerHTML = 7000
 
 const addIncome = ()=> {
     let incomeValue = Number(prompt("Enter your monthly income:"))
@@ -13,9 +14,52 @@ const addSpending = ()=> {
     if(spendingValue<totalIncome.innerHTML) {
         console.log(spendingValue);
         document.getElementById("totalSpending").innerHTML = Number(spendingValue)
-        alert("money Dey")
+        document.getElementById("budgetBalance").innerHTML = Number(totalSpending.innerHTML)
+        alert('Your expense has been added')
     }else {
         alert("No money")
     }
 }
 
+const addExpense = ()=> {
+   let item = prompt("enter what you are buying")
+   let description = prompt("what are you using it  for?")
+   let amount = Number(prompt("How much are you spending?"))
+
+    let details = {
+        item, description, amount
+    }
+    expense.push(details)
+    display()
+    // console.log(expense);
+}
+
+const display = ()=>{
+    output = ""
+    expense.forEach((eachExpense, index)=>{
+        // console.log(eachExpense);
+            output +=     `
+                            <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full">
+                                    <p>#${eachExpense.item}</p>
+                                    <p>${eachExpense.description}</p>
+                                <div class="flex justify-between">
+                                    <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
+                                    <div class="flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
+                                        </svg>
+                                        <span>15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                         `
+        document.getElementById("output").innerHTML=output;
+        budgetBalance.innerHTML = document.getElementById("budgetBalance").innerHTML - eachExpense.amount 
+        console.log(eachExpense.amount, document.getElementById("budgetBalance").innerHTML);
+    })
+}
+
+// const getBudget = ()=>{
+//  let   totalBudget = document.getElementById("budgetBalance").innerHTML - eachExpense.amount 
+//  return totalBudget
+// }
