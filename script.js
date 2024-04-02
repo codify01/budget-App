@@ -5,19 +5,17 @@
 const addIncome = ()=> {
     let incomeValue = Number(prompt("Enter your monthly income:"))
     console.log(incomeValue);
-    document.getElementById("totalIncome").innerHTML = "$" + incomeValue
+    document.getElementById("totalIncome").innerHTML = "$" + Number(incomeValue)
 }
 
 const addSpending = ()=> {
-console.log(totalIncome, totalSpending);
-let incomeValue = Number(prompt("Enter how much your spending:"))
-    if (document.getElementById("totalIncome").innerHTML  != ""){
-        alert("you are good to go")
-        console.log(incomeValue);
-        document.getElementById("totalSpending").innerHTML = "$" + incomeValue
-    } else{
-        alert( "You don't have enough money!")
+// console.log(totalIncome, totalSpending);
+// let spendingValue = Number(prompt("Enter how much your spending:"))
+// console.log(spendingValue);
+    if(5000<7000) {
+        alert("No money")
+    }else {
+        alert("money Dey")
     }
-
 }
 
