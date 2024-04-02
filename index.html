@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body class="max-w-md container mx-auto">
@@ -23,7 +23,7 @@
         </div>
         <div class="text-center bg-slate-500 p-3 rounded-lg mt-3 text-slate-900">
             <p class="text-md">My budget balance</p>
-            <p class="font-bold text-xl" id="budgetBalance">$1,5000.00</p>
+            <p class="font-bold text-xl" >$<span id="budgetBalance">00.00</span> </p>
            <div class="flex justify-evenly my-2">
                 <button class="bg-slate-300 rounded-3xl px-5 py-2 flex gap-2 items-center" onclick="addIncome()">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -60,7 +60,7 @@
                    <div class="flex justify-between items-top mt-1">
                     <div class="text-left">
                         <p class="text-sm">incomes</p>
-                        <p class="font-bold text-lg" id="totalIncome">$7000</p>
+                        <p class="font-bold text-lg">$<span id="totalIncome"></span></p>
                     </div>
                     <div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 border-b-1">
@@ -87,7 +87,7 @@
                     <div class="flex justify-between ">
                         <div class="text-left">
                             <p class="text-sm" >Spending</p>
-                            <p class="font-bold text-lg" id="totalSpending">$--</p>
+                            <p class="font-bold text-lg" >$<span id="totalSpending"></span> </p>
                         </div>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 border-b-1">
