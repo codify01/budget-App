@@ -1,0 +1,3 @@
+const addIncome = ()=> {
+    alert("working")
+}
