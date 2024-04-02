@@ -2,6 +2,7 @@
 // let totalSpending = document.getElementById("totalspending").innerHTML
 let expense = []
 totalIncome.innerHTML = 7000
+budgetBalance.innerHTML = 7000/2
 
 const addIncome = ()=> {
     let incomeValue = Number(prompt("Enter your monthly income:"))
@@ -15,6 +16,8 @@ const addSpending = ()=> {
         console.log(spendingValue);
         document.getElementById("totalSpending").innerHTML = Number(spendingValue)
         document.getElementById("budgetBalance").innerHTML = Number(totalSpending.innerHTML)
+        document.getElementById("percentageSpending").innerHTML = ((totalSpending.innerHTML / totalIncome.innerHTML) * 100).toFixed(2) + "%"
+
         alert('Your expense has been added')
     }else {
         alert("No money")
@@ -25,18 +28,21 @@ const addExpense = ()=> {
    let item = prompt("enter what you are buying")
    let description = prompt("what are you using it  for?")
    let amount = Number(prompt("How much are you spending?"))
-
-    let details = {
-        item, description, amount
+    if (totalSpending.innerHTML <= 0 || item == "" || description == "" || amount == ""){
+        alert("An error occured")
+    }else {
+        let details = {
+            item, description, amount
+        }
+        expense.push(details)
+        display()
     }
-    expense.push(details)
-    display()
     // console.log(expense);
 }
 
 const display = ()=>{
     output = ""
-    expense.forEach((eachExpense, index)=>{
+    expense.map((eachExpense, index)=>{
         // console.log(eachExpense);
             output +=     `
                             <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full">
@@ -48,13 +54,13 @@ const display = ()=>{
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                                         </svg>
-                                        <span>15%</span>
+                                        <span class="text-red-500">${((eachExpense.amount/totalSpending.innerHTML)*100).toFixed(2)}%</span>
                                     </div>
                                 </div>
                             </div>
                          `
         document.getElementById("output").innerHTML=output;
-        budgetBalance.innerHTML = document.getElementById("budgetBalance").innerHTML - eachExpense.amount 
+        budgetBalance.innerHTML = document.getElementById("budgetBalance").innerHTML - eachExpense.amount
         console.log(eachExpense.amount, document.getElementById("budgetBalance").innerHTML);
     })
 }
