@@ -2,7 +2,7 @@
 // let totalSpending = document.getElementById("totalspending").innerHTML
 let expense = []
 totalIncome.innerHTML = 7000
-budgetBalance.innerHTML = 7000/2
+// budgetBalance.innerHTML = 7000/2
 
 const addIncome = ()=> {
     let incomeValue = Number(prompt("Enter your monthly income:"))
@@ -45,9 +45,9 @@ const display = ()=>{
     expense.map((eachExpense, index)=>{
         // console.log(eachExpense);
             output +=     `
-                            <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full">
-                                    <p>#${eachExpense.item}</p>
-                                    <p>${eachExpense.description}</p>
+                            <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
+                                    <p class="sentence">#${eachExpense.item}</p>
+                                    <p class="sentence">${eachExpense.description}</p>
                                 <div class="flex justify-between">
                                     <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
                                     <div class="flex items-center gap-1">
