@@ -36,6 +36,7 @@ const addExpense = ()=> {
         let details = {
             item, description, amount
         }
+        budgetBalance.innerHTML  = budgetBalance.innerHTML - amount
         expense.push(details)
         display()
     }
@@ -61,7 +62,7 @@ const display = ()=>{
                                 </div>
                             </div>
                          `
-        budgetBalance.innerHTML = Number(document.getElementById("budgetBalance").innerHTML) - eachExpense.amount 
+        // budgetBalance.innerHTML = Number(document.getElementById("budgetBalance").innerHTML) - eachExpense.amount 
         document.getElementById("output").innerHTML=output;
         console.log(eachExpense.amount, document.getElementById("budgetBalance").innerHTML);
     })
