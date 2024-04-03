@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <title>Document</title>
 </head>
 <body class="max-w-md container mx-auto dark:bg-gray-900 dark:text-gray-200">
@@ -27,7 +28,7 @@
                 <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
             </svg>  
         </div>
-        <div class="text-center bg-gray-600 p-3 rounded-lg mt-3 text-gray-900">
+        <div class="text-center bg-gray-700 p-3 rounded-lg mt-3 text-gray-900">
             <p class="text-md">My budget balance</p>
             <p class="font-bold text-xl" >$<span id="budgetBalance">00.00</span> </p>
            <div class="flex justify-evenly my-2">
@@ -58,7 +59,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                             </svg>
-                            <span class="text-green-500">
+                            <span class="text-green-500" id="percentageIncome">
                                 0.00%
                             </span>
                        </div>
@@ -117,128 +118,11 @@
     <!-- section two -->
     <div class="static p-2 mt-10 mb-8 w-full" id="output">
         <!-- expenses -->
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-        <div class="bg-slate-200 shadow-md p-3 rounded mb-2 w-full dark:text-gray-900">
-                <p class="sentence">#${eachExpense.item}</p>
-                <p class="sentence">${eachExpense.description}</p>
-            <div class="flex justify-between">
-                <p class="text-lg font-semibold">$ ${eachExpense.amount}</p>
-                <div class="flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
-                    </svg>
-                    <span class="text-red-500">$</span>
-                </div>
-            </div>
-        </div>
-
+      
     </div>
     
 
-    <div class="flex justify-evenly items-center p-2 fixed bottom-0  w-full bg-white dark:bg-gray-900 max-w-md">
+    <div class="flex justify-evenly items-center p-2 fixed bottom-0  w-full bg-white dark:bg-gray-700 max-w-md">
         <!-- <p class="font-semibold">Expenses</p> -->
         <button>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

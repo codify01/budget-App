@@ -7,15 +7,17 @@ totalIncome.innerHTML = 7000
 const addIncome = ()=> {
     let incomeValue = Number(prompt("Enter your monthly income:"))
     console.log(incomeValue);
-    document.getElementById("totalIncome").innerHTML = Number(incomeValue)
+    document.getElementById("percentageIncome").innerHTML = ((Number(incomeValue) / totalIncome.innerHTML) * 100).toFixed(2) + "%"
+    document.getElementById("totalIncome").innerHTML = Number(document.getElementById("totalIncome").innerHTML) + Number(incomeValue)
+
 }
 
 const addSpending = ()=> {
     let spendingValue = Number(prompt("Enter how much your spending:"))
     if(spendingValue<totalIncome.innerHTML) {
         console.log(spendingValue);
-        document.getElementById("totalSpending").innerHTML = Number(spendingValue)
-        document.getElementById("budgetBalance").innerHTML = Number(totalSpending.innerHTML)
+        document.getElementById("totalSpending").innerHTML = Number(document.getElementById("totalSpending").innerHTML) + Number(spendingValue)
+        document.getElementById("budgetBalance").innerHTML = Number(spendingValue) + Number(document.getElementById("budgetBalance").innerHTML)
         document.getElementById("percentageSpending").innerHTML = ((totalSpending.innerHTML / totalIncome.innerHTML) * 100).toFixed(2) + "%"
 
         alert('Your expense has been added')
@@ -59,13 +61,14 @@ const display = ()=>{
                                 </div>
                             </div>
                          `
+        budgetBalance.innerHTML = Number(document.getElementById("budgetBalance").innerHTML) - eachExpense.amount 
         document.getElementById("output").innerHTML=output;
-        budgetBalance.innerHTML = document.getElementById("budgetBalance").innerHTML - eachExpense.amount
         console.log(eachExpense.amount, document.getElementById("budgetBalance").innerHTML);
     })
 }
 
-// const getBudget = ()=>{
-//  let   totalBudget = document.getElementById("budgetBalance").innerHTML - eachExpense.amount 
+// const getBudget = (e)=>{
+//  let   totalBudget = Number(document.getElementById("budgetBalance").innerHTML) - eachExpense.amount 
+//  console.log(e);
 //  return totalBudget
 // }
